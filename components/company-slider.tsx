@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import {
   Carousel,
@@ -10,6 +12,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Code, Megaphone, Smartphone } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Autoplay from 'embla-carousel-autoplay'
 
 const companyHighlights = [
   {
@@ -54,6 +57,10 @@ const companyHighlights = [
 ]
 
 export function CompanySlider() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  )
+
   return (
     <section className="w-full relative bg-background">
       <Carousel
@@ -61,6 +68,9 @@ export function CompanySlider() {
           align: 'start',
           loop: true,
         }}
+        plugins={[plugin.current]}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
         className="w-full"
       >
         <CarouselContent className="-ml-0">
