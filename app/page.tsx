@@ -1,5 +1,6 @@
 import { Header } from '@/components/header'
 import { Hero } from '@/components/hero'
+import { CompanySlider } from '@/components/company-slider'
 import { Services } from '@/components/services'
 import { Stats } from '@/components/stats'
 import { Process } from '@/components/process'
@@ -14,6 +15,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <CompanySlider />
       <Services />
       <Stats />
       <Process />
